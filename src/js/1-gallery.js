@@ -134,7 +134,8 @@ let gallery = new SimpleLightbox('.gallery a',
     { 
         captionsData: "alt",
         captionClass: "text-center",
-        captionDelay: 250,
+      captionDelay: 250,
+        overlayOpacity: 0.8,
     });
 gallery.on('show.simplelightbox', function () {
 	// Do something…
