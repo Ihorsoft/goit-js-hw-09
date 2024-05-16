@@ -7,5 +7,5 @@
       alt="${o.description}"
     />
   </a>
-</li>`).join("")}const p=document.querySelector(".gallery");console.log(p);p.insertAdjacentHTML("beforeend",n(e));let a=new t(".gallery a",{captionsData:"alt",captionClass:"text-center"});a.on("show.simplelightbox",function(){});a.on("error.simplelightbox",function(i){console.log(i)});
-//# sourceMappingURL=1-gallery-d381fd07.js.map
+</li>`).join("")}const p=document.querySelector(".gallery");console.log(p);p.insertAdjacentHTML("beforeend",n(e));let a=new t(".gallery a",{captionsData:"alt",captionClass:"text-center",captionDelay:250});a.on("show.simplelightbox",function(){});a.on("error.simplelightbox",function(i){console.log(i)});
+//# sourceMappingURL=1-gallery-95f9fc67.js.map
