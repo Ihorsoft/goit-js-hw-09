@@ -11,7 +11,8 @@ populateText();
 
 
 function handleInput(event) {
-   // console.log(event.target);
+    // console.log(event.target);
+     event.preventDefault();
     const key = event.target.name;
     formData[key] = event.target.value;
     console.log(formData);
