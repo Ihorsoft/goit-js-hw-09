@@ -3,6 +3,7 @@ const formData = {
     message: "",
 };
 
+
 const form = document.querySelector(".feedback-form");
 form.addEventListener("input", handleInput);
 form.addEventListener("submit", handleSubmit);
@@ -15,7 +16,6 @@ function handleInput(event) {
      event.preventDefault();
     const key = event.target.name;
     formData[key] = event.target.value;
-    console.log(formData);
     localStorage.setItem("feedback-form-state", JSON.stringify(formData));
 }
 
@@ -27,9 +27,13 @@ function populateText() {
         console.log("in local Storage clear. Latest input has submit")
         return;
     }
+     console.log("formData pre", formData.email, formData.message);
     const { email, message } = form.elements;
     email.value = data.email;
     message.value = data.message;
+    formData.email = data.email;
+    formData.message = data.message;
+    console.log("formData after", formData.email, formData.message);
     return;
 }
 function handleSubmit(event) {
