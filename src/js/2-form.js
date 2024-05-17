@@ -12,8 +12,7 @@ populateText();
 
 
 function handleInput(event) {
-    // console.log(event.target);
-     event.preventDefault();
+   
     const key = event.target.name;
     formData[key] = event.target.value;
     localStorage.setItem("feedback-form-state", JSON.stringify(formData));
@@ -21,38 +20,32 @@ function handleInput(event) {
 
 function populateText() {
     const data = JSON.parse(localStorage.getItem("feedback-form-state"));
-    //  const key = Object.keys(data);
-    console.log("Local Storage prewie ", data);
+  
     if (!data) {
-        console.log("in local Storage clear. Latest input has submit")
-        return;
+      return;
     }
-     console.log("formData pre", formData.email, formData.message);
+     
     const { email, message } = form.elements;
-    email.value = data.email;
-    message.value = data.message;
+    email.value = data.email || "";
+    message.value = data.message || "";
     formData.email = data.email;
     formData.message = data.message;
-    console.log("formData after", formData.email, formData.message);
+    
     return;
 }
 function handleSubmit(event) {
     event.preventDefault();
-    if (event.target.elements.email.value.trim() == "" || 
-        event.target.elements.message.value.trim() == "")
+    if (formData.email.trim() == "" || 
+        formData.message.trim() == "")
        {
         alert("All form fields and message fields be filled in"); 
         return;
     }
-    
-    const info = {
-        email: event.target.elements.email.value.trim(),
-        message: event.target.elements.message.value.trim()
-    };
-    console.log("Submit sucsess", info);
+    console.log("formData.email", formData.email, "formData.message", formData.message);
+    formData.email = "";
+    formData.message = "";
     form.reset();
     localStorage.removeItem("feedback-form-state");
-    console.log("local Storage clear");
     return;
 
     
